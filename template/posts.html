@@ -1,0 +1,37 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "blog.css" %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discover kenya</title>
+</head>
+<body>
+
+<header>
+<h1>blog master</h1>
+</header>
+<main>
+
+
+         <h1>{{posts.title}} </h1>
+         <h2>{{posts.created}}</h2>
+         <h1>experience </h1>
+         <p>{{posts.experience}} </p>
+         <form  method ='POST' action="/addexperience/{{posts.id}}">
+            {% csrf_token %}
+            <p>add your own experience</p>
+            <input type="text"  name='added'>
+            <input type="submit"value ="submit">
+            </form>
+         <h1>location </h1>
+         <p>{{posts.location}} </p>
+         <h1>weather</h1>
+         <p>{{posts.weather}} </p>
+
+    </main>
+    
+</body>
+</html>
