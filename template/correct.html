@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "blog.css"%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog master</title>
+</head>
+<body>
+
+<header>
+<h1>discover kenya</h1>
+</header>
+{%for instance in object_list reversed%}
+<main>
+    <a href="/post/{{instance.id}}">
+
+         <h1>{{instance.title}} </h1>
+         <h2>{{instance.created}}</h2>
+         <p>{{instance.experience|truncatewords:5}} </p>
+        </a>
+    
+    </main>
+    {% endfor %}
+    <form  method ='POST' action="/addfeature">
+        {% csrf_token %}
+            <h1>title</h1>
+    <input type="text"  name='title'>
+    <h1>experience </h1>
+    <input type="text"  name='experience'>
+    <h1>region</h1>
+    <input type="text"  name='region'>
+         
+            
+            
+       
+         <h1>location </h1>
+        <input type="text"  name='location'>
+         <h1>weather</h1>
+         <input type="text"  name='weather'>
+         <input type="submit"value ="submit">
+        </form>
+
+    
+</body>
+</html>
