@@ -3,10 +3,12 @@ from. import views
 
 urlpatterns=[
 
-    path('',views.index,name='index'),
+    path('all',views.index,name='index'),
     path('post/<str:pk>',views.posts,name='posts'),
     path('addexperience/<str:pk>',views.addexperience,name='addexperience'),
-    path('test',views.test,name='test'),
+    path('',views.test,name='test'),
     path('perregion',views.perregion,name='perregion'),
-    path('addfeature',views.addfeature,name='addfeature')
+    path('addfeature',views.addfeature,name='addfeature'),
+    path('map', views.calculate_distance_view, name='calaculate-view'),
+
     ]
