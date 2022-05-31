@@ -1,5 +1,5 @@
 from django.urls import path
-from. import views
+from . import views
 
 urlpatterns=[
 
@@ -9,6 +9,6 @@ urlpatterns=[
     path('',views.test,name='test'),
     path('perregion',views.perregion,name='perregion'),
     path('addfeature',views.addfeature,name='addfeature'),
-    path('map', views.calculate_distance_view, name='calaculate-view'),
+    path('map/<str:pk>', views.show_map, name='show-map'),
 
     ]

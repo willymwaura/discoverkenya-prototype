@@ -28,6 +28,11 @@
             </form>
          <h1>location </h1>
          <p>{{posts.location}} </p>
+         <form  method ='POST' action="/map/{{posts.id}}">
+            {% csrf_token %}
+            <input type="submit"value ="show map">
+            </form>
+         
          <h1>weather</h1>
          <p>{{posts.weather}} </p>
 
