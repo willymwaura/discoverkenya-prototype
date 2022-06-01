@@ -22,7 +22,6 @@ def posts(request,pk):
     url="http://api.weatherapi.com/v1/current.json?"
     key="key=59639ecea3c34ac3ba2140442223105&q="
     parameter=site_name
-    print(parameter)
     end="&aqi=no"
     url=url +key +parameter + end
     #url="http://api.weatherapi.com/v1/current.json?key=59639ecea3c34ac3ba2140442223105&q=London&aqi=no"
@@ -39,7 +38,7 @@ def addexperience(request,pk):
     posts.experience=newexp
     
     posts.save(update_fields=['experience'])
-    return HttpResponse(" experience added  successfully,Thank you !,We love you")
+    return HttpResponse(" experience added  successfully,Thank you !, we love you ")
 
 
 def test(request):
@@ -56,7 +55,7 @@ def addfeature(request):
     f=request.POST['region']
     e=Feature(title=a,experience=b,nearby_town=c,region=f)
     e.save()
-    return HttpResponse(" tourist site  added successfully,Thank you ! We love you")
+    return HttpResponse(" tourist site  added successfully,Thank you !we love you")
 
 #Basic view for routing 
 
