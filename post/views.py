@@ -17,7 +17,17 @@ def index(request):
 
 def posts(request,pk):
     posts=Feature.objects.get(id=pk)
-    return render (request,"posts.html",{"posts":posts})
+    site=Feature.objects.get(id=pk)
+    site_name=site.nearby_town
+    url="http://api.weatherapi.com/v1/current.json?"
+    key="key=59639ecea3c34ac3ba2140442223105&q="
+    parameter=site_name
+    print(parameter)
+    end="&aqi=no"
+    url=url +key +parameter + end
+    #url="http://api.weatherapi.com/v1/current.json?key=59639ecea3c34ac3ba2140442223105&q=London&aqi=no"
+    response=requests.get(url).json
+    return render (request,"posts.html",{"posts":posts,"response":response})
 
 
 def addexperience(request,pk):
@@ -42,10 +52,9 @@ def perregion(request):
 def addfeature(request):
     a=request.POST['title']
     b=request.POST['experience']
-    c=request.POST['location']
-    d=request.POST['weather']
+    c=request.POST['nearby_town']
     f=request.POST['region']
-    e=Feature(title=a,experience=b,location=c,weather=d,region=f)
+    e=Feature(title=a,experience=b,nearby_town=c,region=f)
     e.save()
     return HttpResponse(" tourist site  added successfully,Thank you ! We love you")
 
